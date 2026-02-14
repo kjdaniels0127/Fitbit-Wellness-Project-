@@ -27,7 +27,95 @@ i.	Prediction: I think first the more active a user is, the more water they will
 i.	Prediction: I think these trends can help us gain more clarity around Bellabeat’s customer activity habits, mindfulness habits, and their overall stress levels. I can then with these insights then come up with recommendations as to how Bellabeat can maximize their wellness and health. For instance, I say that the more active a user is the more water they tend to consume. If this is true, then a good recommendation would be for Bellabeat to invest more in hydration materials to encourage the Bellabeat customers to exercise more.
 
 3. How could these trends help influence Bellabeat marketing strategy?
-i.	Prediction: If for example, the more active a user is the more water they tend to consume. Bellabeat could advertise more wellness products that encourage people to exercise more often. They could even offer discounts for more active consumers. Another example is let’s say that the meditation and yoga practices do in fact lead to lower stress levels. What Bellaboat could do is put more money into advertising for their medititation and yoga practice programs. They could also offer discounts and incentives for the women to use yoga or other mindfulness programs to help women’s health and emotional well being increase. 
+i.	Prediction: If for example, the more active a user is the more water they tend to consume. Bellabeat could advertise more wellness products that encourage people to exercise more often. They could even offer discounts for more active consumers. Another example is let’s say that the meditation and yoga practices do in fact lead to lower stress levels. What Bellaboat could do is put more money into advertising for their medititation and yoga practice programs. They could also offer discounts and incentives for the women to use yoga or other mindfulness programs to help women’s health and emotional well being increase.
+
+## Data Preparation Phase and Data Limitations
+
+**Datasets Used** 
+
+|     Dataset Name                       |     Dataset Description                                                                                                                                                             |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     dailyactivity_merged               |     Collects the daily activity of the 33-35 fitibit users   which includes calories burned, active minutes, sedentary minutes, steps, and   distance over 03.12.2016-05.12.2016    |
+|     heartrate_seconds_merged           |     Exact heart rate by minute and day for 15 fitbit users   over 03.12.2016-05.12.2016                                                                                             |
+|     hourlycalories_merged              |     Calories burned by the hour for 35 fitbit users over   03.12.2016-05.12.2016                                                                                                    |
+|     hourlyintensities_merged           |     Hourly and average intensities for 35 fitbit users over   03.12.2016-05.12.2016                                                                                                 |
+|     hourlysteps_merged                 |     Hourly steps count for 34 fitibit users from   03.12.2016-05.12.2016                                                                                                            |
+|     minutesCalroiesNarrow_merged       |     Calories burned by the minute for 35 fitbit users over   03.12.2016-05.12.2016                                                                                                  |
+|     minutesIntensitiesNarrow_merged    |     Minute Intensities for 35 fitbit users over   03.12.2016-05.12.2016 (each minute is one row)                                                                                    |
+|     minutesMETSNarrow_merged           |     METs (metabloic equivalents) expended by minute for 34   fit bit users over 03.12.2016-05.12.2016                                                                               |
+|     minuteSleep_merged                 |     Sleep day table breaking down total asleep time, total   time in bed, and sleep records for 24 fit bit users                                                                    |
+|     minuteStepsNarrow_merged           |     Steps recorded for dates 03.12.2016-05.12.2016 for 34   users                                                                                                                   |
+|     weightloginfo_merged               |     Weight info broken down by BMI, weights in lbs and kgs   for 13 fitibit users over 03.30.2016-05.12.2016                                                                        |
+|     dailycalories_merged               |     Calories burned daily for 35 fitbit users over   04.12.2016-05.12.2016                                                                                                          |
+|     dailyIntensities_merged            |     Daily Intensities for 33 fitbit users measuring active   and sedentary minutes and distances for 04.12.2016-05.12.2016                                                          |
+|     dailysteps_merged                  |     Daily steps count for 33 fitbit users from   04.12.2016-05.12.2016                                                                                                              |
+|     minutesCalroiesWide_merged         |     Calories burned by the minute for 33 fitbit users over   04.13.2016-05.12.2016 (each minute has a separate column)                                                              |
+|     minutesIntensitiesWide_merged      |     Minute Intensities for 35 fitbit users over   03.12.2016-05.2016 (each minute is one column)                                                                                    |
+|     minutesStepWide_merged             |     Minutes steps for 33 fitbit users                                                                                                                                               |
+|     sleepday_merged                    |     Sleep day table breaking down total asleep time, total   time in bed, and sleep records for 24 fit bit users                                                                    |
+
+
+**Data Limitations**
+1. Some datasets don’t have the full 35 users in it (Ex. Heart Rate and Weight Datasets only have 14 and 13 users in it, respectively.)
+2. Only women have been provided
+3. We don't have data about these women's race, disability, or age. 
+4. This leads to the possibility of sampling bias due to limit demographic info. 
+
+## FitBit Categories Studied and Unique FitBit Names 
+
+**Fitbit Categories Studied**
+1. Steps
+2. Intensities
+3. Calories 
+4. fitbit User Weight
+5. Heart Rate
+6. METS
+7. Daily Activity
+8. Sleep Minutes
+
+
+**Unique FitBit Names**
+
+|     User IDs      |     Unique Fit Bit   User Name    |
+|-------------------|-----------------------------------|
+|     6117666160    |     User 1                        |
+|     7086361926    |     User 2                        |
+|     8792009665    |     User 3                        |
+|     3977333714    |     User 4                        |
+|     8583815059    |     User 5                        |
+|     1624580081    |     User 6                        |
+|     4558609924    |     User 7                        |
+|     2891001357    |     User 8                        |
+|     4445114986    |     User 9                        |
+|     3372868164    |     User 10                       |
+|     6962181067    |     User 11                       |
+|     1644430081    |     User 12                       |
+|     2026352035    |     User 13                       |
+|     8053475328    |     User 14                       |
+|     1844505072    |     User 15                       |
+|     8378563200    |     User 16                       |
+|     2022484408    |     User 17                       |
+|     4057192912    |     User 18                       |
+|     4020332650    |     User 19                       |
+|     7007744171    |     User 20                       |
+|     6290855005    |     User 21                       |
+|     1503960366    |     User 22                       |
+|     4702921684    |     User 23                       |
+|     1927972279    |     User 24                       |
+|     4319703577    |     User 25                       |
+|     2347167796    |     User 26                       |
+|     5553957443    |     User 27                       |
+|     2873212765    |     User 28                       |
+|     5577150313    |     User 29                       |
+|     6775888955    |     User 30                       |
+|     6391747486    |     User 31                       |
+|     8253242879    |     User 32                       |
+|     8877689391    |     User 33                       |
+|     2320127002    |     User 34                       |
+|     4388161847    |     User 35                       |
+
+
+
 
 
 
