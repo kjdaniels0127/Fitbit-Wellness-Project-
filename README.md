@@ -423,3 +423,11 @@ Average METs Outliers
 a.	25th percentile (Quartile 1): 16833.58
 b.	75th percentile (Quartile 3): 24256.92
 Two notable outliers are: User 24 and User 22. User 24 was an outlier above 75th percentile (Quartile 3) or average weight and below 25th percentile (Quartile 1) for average METs per day. User 22 was an outlier below 25th percentile (Quartile 1) for average weight and above 75th percentile (Quartile 3) for average METs per day. 
+
+**Client Recommendations Based On Data Analysis Results**
+
+1. Recommendation #1: Reward system based on exercise output
+Reward System to incentivize consumers having continuous healthy activity. Like this reward system could offer reward points or discounts on the Bellabeat app for workout products, snacks, and merchandise. (Ex. Users average 11000 steps a month they get a 15% discount on Bellabeat products, Users burn an average of 2800 calories a month they get a 10% discount on Bellabeat’s water). This can help consumers incentivize consumers to stay active and give new potential consumers incentives for activity. All  in all, I think this recommendation can both help the health of current consumers and create incentives for new potential consumers. 
+
+2. Recommendation #2: Exercises to help with sleep and reduce stress
+This is to help users who are averaging less than 420 minutes of daily sleep (7 daily hours of sleep). I recommend offering free meditation exercises through the Bellabeat apps. I also recommend giving 20% discounts on helpful sleep aids such as melatonin. We can also encourage these users to do yoga. I believe this will help current consumers sleep more and have less stress so they can stay relatively healthy. The more healthy they are the more likely there are to build health exercise habits.
