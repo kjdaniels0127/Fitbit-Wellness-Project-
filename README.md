@@ -59,7 +59,7 @@ i.	Prediction: If for example, the more active a user is the more water they ten
 1. Some datasets don’t have the full 35 users in it (Ex. Heart Rate and Weight Datasets only have 14 and 13 users in it, respectively.)
 2. Only women have been provided
 3. We don't have data about these women's race, disability, or age. 
-4. This leads to the possibility of sampling bias due to limit demographic info. 
+4. This leads to the possibility of sampling bias due to limit demographic info.
 
 ## FitBit Categories Studied and Unique FitBit Names 
 
@@ -115,8 +115,259 @@ i.	Prediction: If for example, the more active a user is the more water they ten
 |     4388161847    |     User 35                       |
 
 
+**Data Processing Stage** 
 
+1. To start processing the data, I opened up the csv files. I then tried to transfer the csv files to Google Big Query
+2. I came across some problems in the data transfer. Down below I’ll show you the issue and the solution to that problem
 
+- Fitbit datasets 04.2016-05.2016
+
+|     Dataset Name                       |     Dataset Status      |     Problems                                                                                       |     Solutions                                                                                                                                                  |
+|----------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     heartrate_seconds_merged           |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitCSV.com to split the file into 8   separate files and (2) Change the date/hour format from   "MM/DD/YYYY" to a format of "YYYY/MM/DD"    |
+|     hourlycalories_merged              |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     hourlyintensities_merged           |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     hourlysteps_merged                 |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesCalroiesNarrow_merged       |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     minutesIntensitiesNarrow_merged    |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     minutesMETSNarrow_merged           |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     minuteSleep_merged                 |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minuteStepsNarrow_merged           |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     weightloginfo_merged               |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesCalroiesWide_merged         |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesIntensitiesWide_merged      |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesStepWide_merged             |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     sleepday_merged                    |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+
+- Fitbit Datasets 03.2016-04.2016
+
+|     Dataset Name                       |     Dataset Status      |     Problems                                                                                       |     Solutions                                                                                                                                                  |
+|----------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     heartrate_seconds_merged           |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitCSV.com to split the file into 8   separate files and (2) Change the date/hour format from   "MM/DD/YYYY" to a format of "YYYY/MM/DD"    |
+|     hourlycalories_merged              |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     hourlyintensities_merged           |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     hourlysteps_merged                 |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesCalroiesNarrow_merged       |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     minutesIntensitiesNarrow_merged    |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     minutesMETSNarrow_merged           |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     minuteSleep_merged                 |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minuteStepsNarrow_merged           |     Loaded Into SQL     |     Too much data for an Excel workbook. Incomplete dataset   and Problems with the date format    |     (1) Utilized splitcsv.com to split the Excel file into 4   workbooks (2) Change the date/hour format from "MM/DD/YYYY" to a   format of "YYYY/MM/DD"       |
+|     weightloginfo_merged               |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesCalroiesWide_merged         |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesIntensitiesWide_merged      |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     minutesStepWide_merged             |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+|     sleepday_merged                    |     Loaded Into SQL     |     Problems with the date format                                                                  |     Change the date/hour format from "MM/DD/YYYY"   to a format of "YYYY/MM/DD"                                                                                |
+
+**Statistical Summary Tables Based on Data Analysis**
+
+1. These tables utilized these statistical metrics of Minimum, Quartile 1, Average, Quartile 3, and Maximum.
+
+2. Calories
+
+|     Unique User IDs    |     min_calories_total    |     avg_calories_total    |     max_calories_total    |     quartile_1_calories    |     quartile_3_calories    |
+|------------------------|---------------------------|---------------------------|---------------------------|----------------------------|----------------------------|
+|     User 4             |     42                    |     54.29                 |     219                   |     42                     |     55.5                   |
+|     User 13            |     47                    |     61.66                 |     143                   |     48                     |     67                     |
+|     User 22            |     47                    |     81.08                 |     304                   |     50                     |     93.25                  |
+|     User 6             |     50                    |     58.67                 |     155                   |     50                     |     59                     |
+|     User 28            |     52                    |     79.88                 |     466                   |     53                     |     97                     |
+|     User 11            |     54                    |     92.12                 |     332                   |     55                     |     117                    |
+|     User 27            |     55                    |     75.23                 |     273                   |     55                     |     82                     |
+|     User 34            |     55                    |     61.24                 |     186                   |     55                     |     55                     |
+|     User 7             |     56                    |     74.88                 |     276                   |     56                     |     87.75                  |
+|     User 15            |     56                    |     62.71                 |     191                   |     56                     |     56                     |
+|     User 10            |     56                    |     80.17                 |     278                   |     57                     |     91                     |
+|     User 26            |     56                    |     89.2                  |     378                   |     58                     |     103                    |
+|     User 32            |     59                    |     62.63                 |     294                   |     60                     |     60                     |
+|     User 25            |     61                    |     89.48                 |     233                   |     61                     |     107                    |
+|     User 17            |     62                    |     108.86                |     538                   |     62                     |     127                    |
+|     User 1             |     62                    |     94.75                 |     473                   |     63                     |     120                    |
+|     User 20            |     65                    |     111.03                |     501                   |     65                     |     129                    |
+|     User 2             |     68                    |     97.55                 |     518                   |     68                     |     104.25                 |
+|     User 9             |     69                    |     93.04                 |     361                   |     70                     |     106                    |
+|     User 3             |     70                    |     80.7                  |     248                   |     70                     |     75                     |
+|     User 14            |     73                    |     124.84                |     636                   |     73                     |     121                    |
+|     User 33            |     73                    |     145.99                |     933                   |     74                     |     154                    |
+|     User 18            |     74                    |     80.88                 |     330                   |     74                     |     74                     |
+|     User 31            |     76                    |     77.56                 |     392                   |     76                     |     76                     |
+|     User 30            |     77                    |     111.88                |     442                   |     77                     |     115                    |
+|     User 29            |     77                    |     145.86                |     632                   |     79                     |     170.75                 |
+|     User 8             |     80                    |     93.33                 |     160                   |     80                     |     80                     |
+|     User 19            |     83                    |     112.52                |     442                   |     83                     |     126                    |
+|     User 24            |     83                    |     109.39                |     534                   |     84                     |     106                    |
+|     User 5             |     84                    |     96.14                 |     302                   |     84                     |     97                     |
+|     User 23            |     84                    |     123.55                |     334                   |     85                     |     149.75                 |
+|     User 12            |     83                    |     126.72                |     458                   |     86                     |     140.25                 |
+|     User 21            |     86                    |     112                   |     599                   |     86                     |     122                    |
+|     User 16            |     90                    |     141.7                 |     669                   |     95                     |     145.75                 |
+|     User 4             |     52                    |     1513.67               |     1760                  |     1484.5                 |     1632.25                |
+|     User 13            |     1141                  |     1540.65               |     1926                  |     1410                   |     1662.5                 |
+|     User 10            |     1237                  |     1933.1                |     2124                  |     1908                   |     2047.25                |
+|     User 34            |     1125                  |     1724.16               |     2124                  |     1621.5                 |     1865                   |
+|     User 15            |     665                   |     1573.48               |     2130                  |     1347                   |     1803.5                 |
+|     User 22            |     0                     |     1816.42               |     2159                  |     1787                   |     1954                   |
+|     User 32            |     0                     |     1788                  |     2218                  |     1734                   |     1992                   |
+|     User 28            |     1431                  |     1916.97               |     2241                  |     1880                   |     1993                   |
+|     User 18            |     1527                  |     1973.75               |     2306                  |     1713.75                |     2291                   |
+|     User 27            |     741                   |     1875.68               |     2335                  |     1695.5                 |     2110.5                 |
+|     User 9             |     1212                  |     2186.19               |     2499                  |     2116.5                 |     2313.5                 |
+|     User 25            |     257                   |     2037.68               |     2530                  |     1885                   |     2268                   |
+|     User 11            |     928                   |     1982.03               |     2571                  |     1852.5                 |     2167.5                 |
+|     User 24            |     1383                  |     2172.81               |     2638                  |     2063                   |     2331                   |
+|     User 7             |     1452                  |     2033.26               |     2666                  |     1899                   |     2152                   |
+|     User 26            |     403                   |     2043.44               |     2670                  |     1944.5                 |     2197                   |
+|     User 6             |     1002                  |     1483.35               |     2690                  |     1381.5                 |     1525.5                 |
+|     User 2             |     1199                  |     2566.35               |     2997                  |     2489.5                 |     2790.5                 |
+|     User 3             |     57                    |     1962.31               |     3101                  |     1688                   |     2067                   |
+|     User 17            |     1848                  |     2509.97               |     3158                  |     2385                   |     2720.5                 |
+|     User 20            |     120                   |     2544                  |     3180                  |     2308.75                |     2922                   |
+|     User 21            |     0                     |     2599.62               |     3327                  |     2664                   |     2806                   |
+|     User 5             |     0                     |     2732.03               |     3513                  |     2621.5                 |     2945.5                 |
+|     User 14            |     1505                  |     2945.81               |     3589                  |     2827.5                 |     3199.5                 |
+|     User 23            |     1240                  |     2965.55               |     3691                  |     2877.5                 |     3155                   |
+|     User 30            |     1032                  |     2131.77               |     3727                  |     1841                   |     2379.75                |
+|     User 12            |     1276                  |     2811.3                |     3846                  |     2491                   |     3180                   |
+|     User 19            |     1120                  |     2385.81               |     3879                  |     1980                   |     2877                   |
+|     User 35            |     1623                  |     3093.87               |     4022                  |     2962                   |     3278.5                 |
+|     User 16            |     1976                  |     3436.58               |     4236                  |     2945                   |     3787.5                 |
+|     User 33            |     1849                  |     3420.26               |     4547                  |     2853.5                 |     3820                   |
+|     User 29            |     1665                  |     3359.63               |     4552                  |     3006.5                 |     3964                   |
+|     User 1             |     1248                  |     2261.14               |     4900                  |     1868.75                |     2564                   |
+4. Heart Rate
+|     User ID #    |     min_heart_rate_by_id    |     avg_heart_rate_by_id    |     max_heart_rate_by_id    |     quartile_1_heart_rate_by_id    |     quartile_3_heart_rate_by_id    |
+|------------------|-----------------------------|-----------------------------|-----------------------------|------------------------------------|------------------------------------|
+|     User 29      |     37.00                   |     64.39                   |     174.50                  |     52.60                          |     67.92                          |
+|     User 17      |     39.00                   |     79.59                   |     202.00                  |     67.84                          |     87.45                          |
+|     User 3       |     44.00                   |     73.10                   |     139.71                  |     64.60                          |     78.79                          |
+|     User 19      |     47.50                   |     81.85                   |     191.00                  |     69.60                          |     92.22                          |
+|     User 33      |     47.00                   |     76.63                   |     177.00                  |     63.80                          |     80.90                          |
+|     User 27      |     47.00                   |     65.38                   |     157.00                  |     59.20                          |     68.22                          |
+|     User 11      |     49.00                   |     74.52                   |     173.00                  |     65.10                          |     80.67                          |
+|     User 31      |     51.80                   |     82.87                   |     130.17                  |     77.54                          |     87.17                          |
+|     User 26      |     51.00                   |     74.45                   |     187.00                  |     65.43                          |     79.50                          |
+|     User 1       |     52.00                   |     82.20                   |     180.00                  |     71.75                          |     92.05                          |
+|     User 7       |     46.00                   |     78.63                   |     197.00                  |     70.50                          |     85.25                          |
+|     User 20      |     55.00                   |     88.79                   |     160.00                  |     78.70                          |     97.69                          |
+|     User 13      |     59.50                   |     79.33                   |     122.00                  |     72.98                          |     86.63                          |
+|     User 30      |     57.00                   |     93.10                   |     177.00                  |     79.25                          |     106.50                         |
+|     User 35      |     41.00                   |     63.99                   |     175.00                  |     56.00                          |     69.00                          |
+
+5. Hourly Intensities
+
+|     Unique User IDs    |     min_intensity    |     avg_intensity    |     max_intensity    |     quartile_1_intensities    |     quartile_3_intensities    |
+|------------------------|----------------------|----------------------|----------------------|-------------------------------|-------------------------------|
+|     User 32            |     0                |     5.25             |     149              |     0                         |     4.75                      |
+|     User 15            |     0                |     4.065            |     71               |     0                         |     2                         |
+|     User 31            |     0                |     0.68             |     108              |     0                         |     0                         |
+|     User 18            |     0                |     3.675            |     117              |     0                         |     4                         |
+|     User 34            |     0                |     5.905            |     67               |     0                         |     8                         |
+|     User 8             |     0                |     10               |     60               |     0                         |     0                         |
+|     User 3             |     0                |     3.845            |     84               |     0                         |     2.5                       |
+|     User 5             |     0                |     6.58             |     178              |     0                         |     6.5                       |
+|     User 6             |     0                |     6.855            |     169              |     0                         |     8                         |
+|     User 24            |     0                |     5.44             |     174              |     0                         |     4                         |
+|     User 19            |     0                |     5.55             |     126              |     0                         |     4.5                       |
+|     User 30            |     0                |     7.375            |     144              |     0                         |     4.5                       |
+|     User 4             |     0                |     11.705           |     147              |     0                         |     13                        |
+|     User 2             |     0                |     11.36            |     166              |     0                         |     11.5                      |
+|     User 27            |     0                |     11.585           |     144              |     0                         |     16                        |
+|     User 21            |     0                |     10.065           |     143              |     0                         |     17.5                      |
+|     User 7             |     0                |     11.74            |     123              |     0                         |     19                        |
+|     User 9             |     0                |     9.825            |     137              |     0                         |     15.375                    |
+|     User 14            |     0                |     18.125           |     180              |     0                         |     17.75                     |
+|     User 23            |     0                |     12.585           |     119              |     0                         |     19.75                     |
+|     User 33            |     0                |     19.15            |     180              |     0                         |     21                        |
+|     User 26            |     0                |     14.745           |     153              |     0                         |     20.5                      |
+|     User 25            |     0                |     12.26            |     87               |     0                         |     19.625                    |
+|     User 20            |     0                |     17.61            |     174              |     0                         |     24                        |
+|     User 28            |     0                |     14.845           |     168              |     0                         |     24                        |
+|     User 17            |     0                |     17.775           |     169              |     0                         |     24.5                      |
+|     User 1             |     0                |     13.12            |     149              |     0                         |     24.5                      |
+|     User 29            |     0                |     20.31            |     180              |     0                         |     24.125                    |
+|     User 11            |     0                |     16.64            |     159              |     0                         |     26                        |
+|     User 13            |     0                |     9.825            |     56               |     0.5                       |     15                        |
+|     User 16            |     0                |     14.34            |     165              |     1.5                       |     13                        |
+|     User 12            |     0                |     12.675           |     130              |     0.5                       |     14.5                      |
+|     User 10            |     0                |     14.7             |     105              |     1                         |     23.625                    |
+|     User 22            |     0                |     16.705           |     159              |     1                         |     22.5                      |
+|     User 35            |     0                |     14.31            |     154              |     0                         |     17                        |
+7. Minutes By METs         
+|     Unique Fitbit Username    |     min_METS_value_by_ID    |     avg_METS_value_by_ID    |     max_METS_value_by_ID    |     quartile_1_METS    |     quartile_3_METS    |
+|-------------------------------|-----------------------------|-----------------------------|-----------------------------|------------------------|------------------------|
+|     User 15                   |     0                       |     11.535                  |     74                      |     10                 |     10                 |
+|     User 32                   |     0                       |     11.845                  |     117                     |     10                 |     10                 |
+|     User 18                   |     0                       |     11.49                   |     94                      |     10                 |     10                 |
+|     User 12                   |     0                       |     14.575                  |     93                      |     10                 |     12                 |
+|     User 2                    |     0                       |     15.145                  |     127                     |     10                 |     12                 |
+|     User 10                   |     10                      |     14.43                   |     159                     |     10                 |     10                 |
+|     User 4                    |     10                      |     14.175                  |     137                     |     10                 |     10.5               |
+|     User 6                    |     0                       |     12.135                  |     107                     |     10                 |     10                 |
+|     User 28                   |     10                      |     15.24                   |     157                     |     10                 |     10                 |
+|     User 34                   |     10                      |     12.14                   |     103                     |     10                 |     11                 |
+|     User 21                   |     10                      |     13.11                   |     138                     |     10                 |     10                 |
+|     User 8                    |     10                      |     11.67                   |     20                      |     10                 |     10                 |
+|     User 31                   |     10                      |     10.21                   |     79                      |     10                 |     10                 |
+|     User 5                    |     10                      |     12.29                   |     109                     |     10                 |     10.5               |
+|     User 3                    |     10                      |     11.765                  |     98                      |     10                 |     10                 |
+|     User 9                    |     10                      |     13.4                    |     98                      |     10                 |     11                 |
+|     User 27                   |     10                      |     14.1                    |     108                     |     10                 |     11                 |
+|     User 25                   |     10                      |     14.395                  |     127                     |     10                 |     11                 |
+|     User 14                   |     0                       |     17.055                  |     189                     |     10                 |     11                 |
+|     User 24                   |     10                      |     11.86                   |     80                      |     10                 |     10.5               |
+|     User 7                    |     0                       |     14.375                  |     144                     |     10                 |     12                 |
+|     User 13                   |     0                       |     13.59                   |     84                      |     10                 |     11                 |
+|     User 26                   |     10                      |     15.755                  |     120                     |     10                 |     12                 |
+|     User 23                   |     10                      |     14.83                   |     86                      |     10                 |     12                 |
+|     User 16                   |     10                      |     15.905                  |     82                      |     10                 |     12                 |
+|     User 22                   |     10                      |     16.88                   |     121                     |     10                 |     12                 |
+|     User 19                   |     10                      |     12.905                  |     140                     |     10                 |     11                 |
+|     User 30                   |     10                      |     13.2                    |     116                     |     10                 |     11                 |
+|     User 33                   |     10                      |     19.765                  |     141                     |     10                 |     13                 |
+|     User 29                   |     10                      |     18.825                  |     146                     |     10                 |     13                 |
+|     User 20                   |     10                      |     17.03                   |     136                     |     10                 |     13                 |
+|     User 1                    |     10                      |     14.965                  |     123                     |     10                 |     12.5               |
+|     User 17                   |     10                      |     17.23                   |     148                     |     10                 |     13                 |
+|     User 11                   |     10                      |     16.32                   |     112                     |     10                 |     12.5               |
+|     User 35                   |     10                      |     16.38                   |     141                     |     10                 |     13                 |
+10. Total Distance By ID 
+
+|     Unique Username    |     min_distance_by_id    |     avg_distance_by_id    |     max_distance_by_id    |     quartile_1_total_by_id    |     quartile_3_total_by_id    |
+|------------------------|---------------------------|---------------------------|---------------------------|-------------------------------|-------------------------------|
+|     User 23            |     0.00                  |     6.71                  |     12.27                 |     5.495                     |     7.825                     |
+|     User 30            |     0.00                  |     2.90                  |     10.03                 |     0.565                     |     4.975                     |
+|     User 28            |     0.00                  |     4.79                  |     9.56                  |     3.99                      |     5.71                      |
+|     User 21            |     0.00                  |     2.75                  |     7.44                  |     2.105                     |     2.7                       |
+|     User 25            |     0.00                  |     5.08                  |     9.49                  |     4.15                      |     6.31                      |
+|     User 18            |     0.00                  |     2.13                  |     6.23                  |     1.105                     |     3.11                      |
+|     User 32            |     0.00                  |     3.18                  |     9.15                  |     1.455                     |     4.405                     |
+|     User 34            |     0.00                  |     2.66                  |     7.67                  |     1.145                     |     3.74                      |
+|     User 15            |     0.00                  |     2.06                  |     5.32                  |     0                         |     3.375                     |
+|     User 31            |     0.00                  |     1.07                  |     7.51                  |     0                         |     0.13                      |
+|     User 1             |     0.00                  |     5.79                  |     15.01                 |     3.405                     |     7.63                      |
+|     User 35            |     0.00                  |     4.20                  |     17.54                 |     3.78                      |     4.715                     |
+|     User 26            |     0.00                  |     6.44                  |     15.08                 |     5.34                      |     6.98                      |
+|     User 8             |     0.00                  |     0.60                  |     3.22                  |     0                         |     0.4                       |
+|     User 19            |     0.00                  |     2.89                  |     8.99                  |     1.535                     |     4.175                     |
+|     User 3             |     0.00                  |     1.59                  |     5.41                  |     0.39                      |     2.265                     |
+|     User 2             |     0.00                  |     5.24                  |     10.82                 |     3.35                      |     6.85                      |
+|     User 24            |     0.00                  |     1.07                  |     3.92                  |     0.38                      |     1.535                     |
+|     User 22            |     0.00                  |     7.71                  |     12.21                 |     6.95                      |     8.58                      |
+|     User 9             |     0.19                  |     3.08                  |     6.11                  |     2.165                     |     4.125                     |
+|     User 14            |     0.21                  |     11.53                 |     20.14                 |     9.485                     |     13.605                    |
+|     User 6             |     0.53                  |     3.33                  |     28.03                 |     1.355                     |     3.975                     |
+|     User 4             |     0.50                  |     6.67                  |     11.05                 |     4.54                      |     8.495                     |
+|     User 13            |     0.16                  |     2.78                  |     7.71                  |     1.845                     |     3.475                     |
+|     User 7             |     0.83                  |     4.45                  |     9.08                  |     3.605                     |     5.42                      |
+|     User 12            |     0.89                  |     6.03                  |     14.71                 |     3.3                       |     8.14                      |
+|     User 27            |     0.43                  |     5.55                  |     11.12                 |     2.77                      |     7.87                      |
+|     User 5             |     0.00                  |     4.00                  |     11.83                 |     2.705                     |     4.9                       |
+|     User 16            |     1.69                  |     6.68                  |     12.85                 |     3.655                     |     9.035                     |
+|     User 33            |     1.78                  |     13.65                 |     27.53                 |     8.145                     |     19.35                     |
+|     User 29            |     0.00                  |     6.33                  |     11.78                 |     4.32                      |     8.035                     |
+|     User 10            |     2.10                  |     4.47                  |     6.63                  |     3.535                     |     5.365                     |
+|     User 17            |     2.31                  |     8.43                  |     13.83                 |     7.125                     |     10.05                     |
+|     User 11            |     1.03                  |     7.62                  |     13.24                 |     6.085                     |     9.01                      |
+|     User 20            |     0.00                  |     8.44                  |     14.30                 |     6.315                     |     10.38                     |
 
 
 
