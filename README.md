@@ -234,6 +234,7 @@ i.	Prediction: If for example, the more active a user is the more water they ten
 |     User 29            |     1665                  |     3359.63               |     4552                  |     3006.5                 |     3964                   |
 |     User 1             |     1248                  |     2261.14               |     4900                  |     1868.75                |     2564                   |
 4. Heart Rate
+
 |     User ID #    |     min_heart_rate_by_id    |     avg_heart_rate_by_id    |     max_heart_rate_by_id    |     quartile_1_heart_rate_by_id    |     quartile_3_heart_rate_by_id    |
 |------------------|-----------------------------|-----------------------------|-----------------------------|------------------------------------|------------------------------------|
 |     User 29      |     37.00                   |     64.39                   |     174.50                  |     52.60                          |     67.92                          |
@@ -250,8 +251,7 @@ i.	Prediction: If for example, the more active a user is the more water they ten
 |     User 20      |     55.00                   |     88.79                   |     160.00                  |     78.70                          |     97.69                          |
 |     User 13      |     59.50                   |     79.33                   |     122.00                  |     72.98                          |     86.63                          |
 |     User 30      |     57.00                   |     93.10                   |     177.00                  |     79.25                          |     106.50                         |
-|     User 35      |     41.00                   |     63.99                   |     175.00                  |     56.00                          |     69.00                          |
-
+|     User 35      |     41.00                   |     63.99                   |     175.00                  |     56.00                          |     69.00                          
 5. Hourly Intensities
 
 |     Unique User IDs    |     min_intensity    |     avg_intensity    |     max_intensity    |     quartile_1_intensities    |     quartile_3_intensities    |
@@ -292,43 +292,7 @@ i.	Prediction: If for example, the more active a user is the more water they ten
 |     User 22            |     0                |     16.705           |     159              |     1                         |     22.5                      |
 |     User 35            |     0                |     14.31            |     154              |     0                         |     17                        |
 7. Minutes By METs         
-|     Unique Fitbit Username    |     min_METS_value_by_ID    |     avg_METS_value_by_ID    |     max_METS_value_by_ID    |     quartile_1_METS    |     quartile_3_METS    |
-|-------------------------------|-----------------------------|-----------------------------|-----------------------------|------------------------|------------------------|
-|     User 15                   |     0                       |     11.535                  |     74                      |     10                 |     10                 |
-|     User 32                   |     0                       |     11.845                  |     117                     |     10                 |     10                 |
-|     User 18                   |     0                       |     11.49                   |     94                      |     10                 |     10                 |
-|     User 12                   |     0                       |     14.575                  |     93                      |     10                 |     12                 |
-|     User 2                    |     0                       |     15.145                  |     127                     |     10                 |     12                 |
-|     User 10                   |     10                      |     14.43                   |     159                     |     10                 |     10                 |
-|     User 4                    |     10                      |     14.175                  |     137                     |     10                 |     10.5               |
-|     User 6                    |     0                       |     12.135                  |     107                     |     10                 |     10                 |
-|     User 28                   |     10                      |     15.24                   |     157                     |     10                 |     10                 |
-|     User 34                   |     10                      |     12.14                   |     103                     |     10                 |     11                 |
-|     User 21                   |     10                      |     13.11                   |     138                     |     10                 |     10                 |
-|     User 8                    |     10                      |     11.67                   |     20                      |     10                 |     10                 |
-|     User 31                   |     10                      |     10.21                   |     79                      |     10                 |     10                 |
-|     User 5                    |     10                      |     12.29                   |     109                     |     10                 |     10.5               |
-|     User 3                    |     10                      |     11.765                  |     98                      |     10                 |     10                 |
-|     User 9                    |     10                      |     13.4                    |     98                      |     10                 |     11                 |
-|     User 27                   |     10                      |     14.1                    |     108                     |     10                 |     11                 |
-|     User 25                   |     10                      |     14.395                  |     127                     |     10                 |     11                 |
-|     User 14                   |     0                       |     17.055                  |     189                     |     10                 |     11                 |
-|     User 24                   |     10                      |     11.86                   |     80                      |     10                 |     10.5               |
-|     User 7                    |     0                       |     14.375                  |     144                     |     10                 |     12                 |
-|     User 13                   |     0                       |     13.59                   |     84                      |     10                 |     11                 |
-|     User 26                   |     10                      |     15.755                  |     120                     |     10                 |     12                 |
-|     User 23                   |     10                      |     14.83                   |     86                      |     10                 |     12                 |
-|     User 16                   |     10                      |     15.905                  |     82                      |     10                 |     12                 |
-|     User 22                   |     10                      |     16.88                   |     121                     |     10                 |     12                 |
-|     User 19                   |     10                      |     12.905                  |     140                     |     10                 |     11                 |
-|     User 30                   |     10                      |     13.2                    |     116                     |     10                 |     11                 |
-|     User 33                   |     10                      |     19.765                  |     141                     |     10                 |     13                 |
-|     User 29                   |     10                      |     18.825                  |     146                     |     10                 |     13                 |
-|     User 20                   |     10                      |     17.03                   |     136                     |     10                 |     13                 |
-|     User 1                    |     10                      |     14.965                  |     123                     |     10                 |     12.5               |
-|     User 17                   |     10                      |     17.23                   |     148                     |     10                 |     13                 |
-|     User 11                   |     10                      |     16.32                   |     112                     |     10                 |     12.5               |
-|     User 35                   |     10                      |     16.38                   |     141                     |     10                 |     13                 |
+
 10. Total Distance By ID 
 
 |     Unique Username    |     min_distance_by_id    |     avg_distance_by_id    |     max_distance_by_id    |     quartile_1_total_by_id    |     quartile_3_total_by_id    |
